@@ -21,7 +21,7 @@ class _GridScreenState extends State<GridScreen> {
 
   @override
   void initState() {
-    // add alphabetmap into an list initialy
+    // add alphabetmap into an list
     for (var i in widget.alphabetMap.values) {
       listOfAlphabets.add(i);
     }
@@ -37,28 +37,28 @@ class _GridScreenState extends State<GridScreen> {
     Map<int, String> horizontal = {};
     Map<int, String> diagonal = {};
 
+    /// adding vertical alphabests in to the map
     for (var i = listOfAlphabets.indexWhere((element) => element == s[0]);
         i < listOfAlphabets.length;
         i += widget.column) {
       vertical[i] = listOfAlphabets[i];
     }
 
+    /// adding horizontal alphabests in to the map
     for (var i = listOfAlphabets.indexWhere((element) => element == s[0]);
         i < widget.column;
         i++) {
-      // print(listOfAlphabets[i]);
-
       horizontal[i] = listOfAlphabets[i];
     }
 
+    /// adding diagonal alphabests in to the map
     for (var i = listOfAlphabets.indexWhere((element) => element == s[0]);
         i < listOfAlphabets.length;
         i += widget.column + 1) {
-      print(listOfAlphabets[i]);
-
       diagonal[i] = listOfAlphabets[i];
     }
 
+    /// Check if the value is in vertical , horizontal or diagonal map
     for (var i in listOfString) {
       try {
         finalls[vertical.keys.firstWhere((element) => vertical[element] == i)] =
@@ -70,8 +70,6 @@ class _GridScreenState extends State<GridScreen> {
     if (finalls.values.contains(false)) {
       finalls = {};
       for (var i in listOfString) {
-        // print(i);
-
         try {
           finalls[diagonal.keys
                   .firstWhere((element) => diagonal[element] == i)] =
