@@ -44,7 +44,7 @@ class _GridScreenState extends State<GridScreen> {
     }
 
     for (var i = listOfAlphabets.indexWhere((element) => element == s[0]);
-        i < widget.row;
+        i < widget.column;
         i++) {
       // print(listOfAlphabets[i]);
 
